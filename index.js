@@ -1,41 +1,27 @@
 console.log("Welcome to Employee Wage Program");
 
-{
-    
-    const fulltime = 8;
-    const parttime = 4;
-    const wageperhour = 20;
-    const maxHrsMonth = 160;
-    const maxDaysMonth = 20;
-    var totalEmpHrs = 0;
-    var totalWorkDays = 0;
-    
-    while(totalEmpHrs < maxHrsMonth && totalWorkDays < maxDaysMonth){
-        totalWorkDays++;
-        var emp_case = Math.floor(Math.random()*10)%3;
-        totalEmpHrs += getHours(emp_case);
-    }
+let emp_wage = 0;
+let empHours = 0;
+const fulltime = 8;
+const parttime = 4;
+const wageperhour = 20;
+const isPartTime = 0;
+const isFullTime = 1;
 
+emp_case = isFullTime;
+switch(emp_case){
+    case isFullTime: //fulltime
+        empHours = fulltime;
+        break;
 
-    var emp_wage = totalEmpHrs * wageperhour;
-    console.log("Day: "+ totalWorkDays+ " EmpHr: " + totalEmpHrs+ " EmpWage: "+emp_wage);
+    case isPartTime: //parttime
+        empHours = parttime;
+        break;
 
-    function getHours(emp_case){
-
-    switch(emp_case){
-        case 1: //fulltime
-           empHours = fulltime;
-           break;
-
-        case 0: //parttime
-            empHours = parttime;
-            break;
-
-        default:
-            empHours = 0;
-            break;
-    }
-    return empHours;
+    default:
+        empHours = 0;
+        break;
 }
 
-}
+emp_wage = empHours * wageperhour;
+console.log("Employee wage: "+emp_wage);
