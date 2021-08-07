@@ -1,20 +1,26 @@
 console.log("Welcome to Employee Wage Program");
 
-let empHours = 0;
-const fulltime = 8;
-const parttime = 4;
-const wageperhour = 20;
-const days = 30; //Calculating for a month
+{
+    
+    const fulltime = 8;
+    const parttime = 4;
+    const wageperhour = 20;
+    const maxHrsMonth = 160;
+    const maxDaysMonth = 20;
+    var totalEmpHrs = 0;
+    var totalWorkDays = 0;
+    
+    while(totalEmpHrs < maxHrsMonth && totalWorkDays < maxDaysMonth){
+        totalWorkDays++;
+        var emp_case = Math.floor(Math.random()*10)%3;
+        totalEmpHrs += getHours(emp_case);
+    }
 
-for(var d=0; d<days; d+=1){
-    var emp_case = Math.floor(Math.random()*10)%3;
-    empHours += getHours(emp_case);
-}
 
-var emp_wage = empHours * wageperhour;
-console.log("Total Hours: "+ empHours+ " Employee Wage: " + emp_wage);
+    var emp_wage = totalEmpHrs * wageperhour;
+    console.log("Day: "+ totalWorkDays+ " EmpHr: " + totalEmpHrs+ " EmpWage: "+emp_wage);
 
-function getHours(emp_case){
+    function getHours(emp_case){
 
     switch(emp_case){
         case 1: //fulltime
@@ -30,4 +36,6 @@ function getHours(emp_case){
             break;
     }
     return empHours;
+}
+
 }
