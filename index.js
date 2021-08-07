@@ -1,15 +1,18 @@
 console.log("Welcome to Employee Wage Program");
 
-let emp_wage = 0;
 let empHours = 0;
 const fulltime = 8;
 const parttime = 4;
 const wageperhour = 20;
+const days = 30; //Calculating for a month
 
-emp_case = Math.floor(Math.random()*10)%3;
-empHours = getHours(emp_case);
-emp_wage = empHours * wageperhour;
-console.log("Employee wage: "+emp_wage);
+for(var d=0; d<days; d+=1){
+    var emp_case = Math.floor(Math.random()*10)%3;
+    empHours += getHours(emp_case);
+}
+
+var emp_wage = empHours * wageperhour;
+console.log("Total Hours: "+ empHours+ " Employee Wage: " + emp_wage);
 
 function getHours(emp_case){
 
