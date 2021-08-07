@@ -1,11 +1,31 @@
 console.log("Welcome to Employee Wage Program");
 
-const is_Absent =0;
-let empcheck = Math.floor(Math.random()* 10)%2
+let emp_wage = 0;
+let empHours = 0;
+const days = 5;
+const fulltime = 8;
+const parttime = 4;
+const wageperhour = 20;
 
-if(empcheck == is_Absent){
-    console.log("Uc 1 -- employee is absent")
-}
-else{
-    console.log("Uc 1 -- employee is present")
+emp_case = Math.floor(Math.random()*10)%3;
+empHours = getHours(emp_case);
+emp_wage = empHours * wageperhour;
+console.log("Employee wage: "+emp_wage);
+
+function getHours(emp_case){
+
+    switch(emp_case){
+        case 1: //fulltime
+           empHours = fulltime;
+           break;
+
+        case 0: //parttime
+            empHours = parttime;
+            break;
+
+        default:
+            empHours = 0;
+            break;
+    }
+    return empHours;
 }
