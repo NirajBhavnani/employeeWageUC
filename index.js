@@ -8,7 +8,7 @@ const wageperhour = 20;
 const isPartTime = 0;
 const isFullTime = 1;
 
-emp_case = isFullTime;
+emp_case = isPartTime;
 switch(emp_case){
     case isFullTime: //fulltime
         empHours = fulltime;
