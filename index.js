@@ -1,47 +1,39 @@
 let con = require('./constants')
-var totalEmpHrs = 0;
-var totalWorkDays = 0;
 
-class Employee{
-    constructor(){
-        //Welcome message
-        this.message();
-    }
+console.log("Welcome to Employee Wage Program");
 
-    message(){
-        console.log("Welcome to Employee Wage Program");
-        
-        this.calculateWage();
-    }
-
-    calculateWage(){
-        while(totalEmpHrs < con.maxHrsMonth && totalWorkDays < con.maxDaysMonth){
-            totalWorkDays++;
-            var emp_case = Math.floor(Math.random()*10)%3;
-            totalEmpHrs += this.getHours(emp_case);
-        }
+{
+    var totalEmpHrs = 0;
+    var totalWorkDays = 0;
+    var wageArray = [];
     
-        var emp_wage = totalEmpHrs * con.wageperhour;
-        console.log("Day: "+ totalWorkDays+ " EmpHr: " + totalEmpHrs+ " EmpWage: "+emp_wage);
+    while(totalEmpHrs < con.maxHrsMonth && totalWorkDays < con.maxDaysMonth){
+        totalWorkDays++;
+        var emp_case = Math.floor(Math.random()*10)%3;
+        totalEmpHrs += getHours(emp_case);
     }
 
-    getHours(emp_case){
+    console.log("Wages for each day: "+wageArray);
+    console.log("Total Hours:"+totalEmpHrs+" Total Workdays:"+totalWorkDays);
 
-        switch(emp_case){
-            case 1: //fulltime
-               this.empHours = con.fulltime;
-               break;
-    
-            case 0: //parttime
-                this.empHours = con.parttime;
-                break;
-    
-            default:
-                this.empHours = 0;
-                break;
-        }
-        return this.empHours;
+    function getHours(emp_case){
+
+    switch(emp_case){
+        case 1: //fulltime
+           empHours = con.fulltime;
+           break;
+
+        case 0: //parttime
+            empHours = con.parttime;
+            break;
+
+        default:
+            empHours = 0;
+            break;
     }
+    dayWage = empHours * con.wageperhour;
+    wageArray.push(dayWage);
+    return empHours;
 }
 
-let newEmp = new Employee();
+}
