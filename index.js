@@ -70,7 +70,8 @@ console.log("Welcome to Employee Wage Program");
     wagesMap.set('Total Wage', totalWage);
     console.log(wagesMap);
 
-    
+
+
     function getHours(emp_case){
 
     switch(emp_case){
