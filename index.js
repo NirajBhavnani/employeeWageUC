@@ -70,6 +70,18 @@ console.log("Welcome to Employee Wage Program");
     wagesMap.set('Total Wage', totalWage);
     console.log(wagesMap);
 
+    //objects
+    var objArr = [];
+    var wagesObject = {};
+    for(var day = 1; day<=20; day++){
+        wagesObject = {
+            days: day,
+            wages: wageArray[day-1],
+            hours: wageArray[day-1]/20,
+        }
+        objArr.push(wagesObject);
+    }
+    console.log(objArr);
 
 
     function getHours(emp_case){
