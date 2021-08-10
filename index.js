@@ -62,6 +62,14 @@ console.log("Welcome to Employee Wage Program");
     var no = reqWage3.length;
     console.log(no+" days");
 
+    //map data structure
+    wagesMap = new Map();
+    for(let day = 1; day<=20; day++){
+        wagesMap.set(day, wageArray[day-1]);
+    }
+    wagesMap.set('Total Wage', totalWage);
+    console.log(wagesMap);
+
 
     function getHours(emp_case){
 
