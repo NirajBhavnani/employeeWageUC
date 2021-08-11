@@ -65,3 +65,20 @@ Emp2.setEmpJoinDate = '2 August 2021';
 
 console.log("New Employee Details: ");
 console.log(`Name => ${Emp2.empName}, ID => ${Emp2.empId}, Salary => ${Emp2.empSalary}`);
+
+var nameRegex = /^[A-Z][a-zA-Z]{2}(\w+)?$/;
+if(nameRegex.test(Emp2.empName)){
+    console.log('Valid');
+}
+else{
+    console.log('Invalid');
+}
+
+var gReg = /^(male|Male|female|Female)$/;
+
+if(gReg.test(Emp2.gender)){
+    console.log('Valid (for Gender)');
+}
+else{
+    console.log('Invalid (for Gender)');
+}
