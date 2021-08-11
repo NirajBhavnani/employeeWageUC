@@ -59,7 +59,7 @@ const NewEmployeePayrollData = class extends EmployeePayrollData{
     }
 };
 
-const Emp2 = new NewEmployeePayrollData(2, 'Darshan', 150000, 'Male', '1 August 2021');
+const Emp2 = new NewEmployeePayrollData(2, 'Darshan', 150000, 'Mal', '1 August 2021');
 
 Emp2.setEmpJoinDate = '2 August 2021';
 
@@ -74,11 +74,13 @@ else{
     console.log('Invalid');
 }
 
+try{
 var gReg = /^(male|Male|female|Female)$/;
 
-if(gReg.test(Emp2.gender)){
-    console.log('Valid (for Gender)');
+if(gReg.test(Emp2.gender)==false){
+    throw "Invalid (for Gender)";
 }
-else{
-    console.log('Invalid (for Gender)');
+}
+catch(error){
+    console.log(error);
 }
